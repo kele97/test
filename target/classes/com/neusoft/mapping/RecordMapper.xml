@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neusoft.mapper.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.neusoft.model.Record" >
+    <id column="recordId" property="recordId" jdbcType="INTEGER" />
+    <result column="roomId" property="roomId" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="startTime" property="startTime" jdbcType="INTEGER" />
+    <result column="endTime" property="endTime" jdbcType="INTEGER" />
+    <result column="subscriber" property="subscriber" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="INTEGER" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="registerId" property="registerId" jdbcType="INTEGER" />
+    <result column="updateId" property="updateId" jdbcType="INTEGER" />
+    <result column="registerDate" property="registerDate" jdbcType="DATE" />
+    <result column="updateDate" property="updateDate" jdbcType="DATE" />
+  </resultMap>
+
+  <!-- <select id="selectRecordByCheck" resultType="int" parameterType="com.neusoft.model.Record" >
+    select 
+     count(recordId)
+    from record
+    where roomId = #{roomId}
+      and date = #{date}
+      and (<![CDATA[ (startTime = #{startTime} and endTime = #{endTime})]]>
+      or <![CDATA[ (startTime <= #{startTime} and endTime >= #{endTime})]]>
+      or <![CDATA[ (startTime >= #{startTime} and endTime <= #{endTime})]]>
+      or <![CDATA[ (startTime >= #{startTime} and startTime <= #{endTime})]]>
+      or <![CDATA[ (endTime >= #{startTime} and endTime <= #{endTime})]]>)
+  </select> -->
+  <select id="selectRecordByCheck" resultType="Integer" parameterType="com.neusoft.model.Record" >
+    select 
+     1
+    from record
+    where roomId = #{roomId}
+      and date = #{date}
+      and (<![CDATA[ (startTime = #{startTime} and endTime = #{endTime})]]>
+      or <![CDATA[ (startTime <= #{startTime} and endTime >= #{endTime})]]>
+      or <![CDATA[ (startTime >= #{startTime} and endTime <= #{endTime})]]>
+      or <![CDATA[ (startTime >= #{startTime} and startTime <= #{endTime})]]>
+      or <![CDATA[ (endTime >= #{startTime} and endTime <= #{endTime})]]>)
+      limit 1
+  </select>
+  <insert id="insert" parameterType="com.neusoft.model.Record" >
+    INSERT INTO record(recordId, roomId, date, startTime, endTime, subscriber, phone, email, reason, remarks, registerId, updateId, registerDate, updateDate) 
+      VALUES (#{recordId}, #{roomId}, #{date}, #{startTime}, #{endTime}, #{subscriber}, #{phone}, #{email}, #{reason}, #{remarks}, #{registerId}, #{updateId}, #{registerDate}, #{updateDate})
+  </insert>
+  <select id="selectRecordList" resultType="com.neusoft.model.OrderInfo" parameterType="Map" >
+    select 
+     T2.roomName
+     , T3.kbnName AS startTime
+     , T4.kbnName   AS endTime
+     , T1.subscriber
+     , T5.kbnName   AS reason
+     , T1.phone
+    from record T1
+    inner join room T2
+      on T2.roomId = T1.roomId
+    inner join kbn T3
+      on T3.kbnCode = #{TIME}
+      and T3.kbnValue = T1.startTime
+    inner join kbn T4
+      on T4.kbnCode = #{TIME}
+      and T4.kbnValue = T1.endTime
+    inner join kbn T5
+      on T5.kbnCode = #{REASON}
+      and T5.kbnValue = T1.reason
+    where date = #{date}
+    <if test="roomId != null and roomId != ''"> and T1.roomId = #{roomId}</if>
+    order by T1.roomId ,T1.startTime
+  </select>
+</mapper>
