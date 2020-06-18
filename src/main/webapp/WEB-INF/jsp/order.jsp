@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<<<<<<< HEAD
 
 <%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -8,23 +7,16 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-=======
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
     	<meta charset="UTF-8">
         <title>
-<<<<<<< HEAD
         	    测试
-=======
-            测试
->>>>>>> d148eede0af0655ed599236de3754163689c3733
         </title>
         <script src="static/jquery/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="static/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
         
         <script type="text/javascript">
         $(document).ready(function () {
@@ -54,9 +46,6 @@
         })
         
         
-=======
-        <script type="text/javascript">
->>>>>>> d148eede0af0655ed599236de3754163689c3733
         	function submit(){
         		// 房间Id
         		let roomId = $("#roomId").text();
@@ -157,14 +146,11 @@
         	function return_json(json){
 	            alert(json.name);
 	        }
-<<<<<<< HEAD
         	
         	
         	function select(){
         		window.location.href="http://localhost:8080/neusoft/order?time=" + $("#date").val() + "&roomId=" + $("#roomList").val();
 	        }
-=======
->>>>>>> d148eede0af0655ed599236de3754163689c3733
         </script>
     </head>
     <body>
@@ -205,7 +191,6 @@
                         </ul>
                         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">预约</button>
                         <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
                         	<!-- TODO 日期控件选择，bootstrap的datetimepicker layui的laydate -->
                         	<li style="margin-top: 10px;margin-right: 10px;">
                         		<input id="date" type="date"/>
@@ -216,33 +201,11 @@
                             </li>
                             <li>
                                 <button class="btn btn-primary btn-lg"  onclick="select()" >查询</button>
-=======
-                            <li>
-                                <a href="#">Link</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#">Action</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Another action</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Something else here</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Separated link</a>
-                                    </li>
-                                </ul>
->>>>>>> d148eede0af0655ed599236de3754163689c3733
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             
             <div class="row-fluid">
 		<div class="span12">
@@ -322,9 +285,6 @@
         </div>
         
 	
-=======
-        </div>
->>>>>>> d148eede0af0655ed599236de3754163689c3733
         <!-- 模态框（Modal） -->
        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

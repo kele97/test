@@ -35,17 +35,10 @@ public class OrderServiceImpl implements OrderService {
 	public Message insertRecord(Record record) {
 		
 		Message msg = new Message();
-<<<<<<< HEAD
 		// 时间段是否重复 null：否 
 		Integer count = recordMapper.selectRecordByCheck(record);
 		
 		if(count != null) {
-=======
-		// 时间段重复的件数
-		int count = recordMapper.selectRecordByCheck(record);
-		
-		if(count > 0) {
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 			msg.setCode(-1);
 			msg.setMsg("会议时间冲突");
 			return msg;

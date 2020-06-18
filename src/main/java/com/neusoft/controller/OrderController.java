@@ -3,13 +3,10 @@ package com.neusoft.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-<<<<<<< HEAD
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-=======
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -22,17 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-<<<<<<< HEAD
 import com.neusoft.mapper.RecordMapper;
 import com.neusoft.mapper.RoomMapper;
 import com.neusoft.model.Message;
 import com.neusoft.model.OrderInfo;
 import com.neusoft.model.Record;
 import com.neusoft.model.Room;
-=======
-import com.neusoft.model.Message;
-import com.neusoft.model.Record;
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 import com.neusoft.service.OrderService;
 
 @Controller
@@ -43,19 +35,15 @@ public class OrderController {
 
 	@Resource
 	private OrderService orderService;
-<<<<<<< HEAD
 	@Resource  
     private RoomMapper roomMapper;  
 	@Resource  
     private RecordMapper recordMapper;  
-=======
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 
 	// TODO 优化日期类
 	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
-<<<<<<< HEAD
 	public String test(HttpServletRequest request, Model model) throws ParseException {
 		// TODO 翻页
 		String roomId = request.getParameter("roomId");
@@ -69,11 +57,6 @@ public class OrderController {
 		map.put("roomId", roomId);
 		List<OrderInfo> orderList = recordMapper.selectRecordList(map);
 		model.addAttribute("orderList", orderList);
-=======
-	public String test(HttpServletRequest request, Model model) {
-//		String roomId = request.getParameter("roomId");
-//		System.out.println(roomId);
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 		return "order";
 	}
 
@@ -95,11 +78,7 @@ public class OrderController {
 		String remarks = request.getParameter("remarks");
 
 		Record record = new Record();
-<<<<<<< HEAD
 		record.setRoomId(Integer.valueOf(roomId));
-=======
-		record.setRoomId(roomId);
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 		record.setDate(format.parse(date));
 		record.setStartTime(Integer.valueOf(startTime));
 		record.setEndTime(Integer.valueOf(endTime));
@@ -120,7 +99,6 @@ public class OrderController {
 		
 		return msg;
 	}
-<<<<<<< HEAD
 	
 	@RequestMapping(value = "/selectRoom", method = RequestMethod.GET)
 	@ResponseBody
@@ -128,7 +106,5 @@ public class OrderController {
 		List<Room> list = roomMapper.selectRoomList();
 		return list;
 	}
-=======
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 
 }

@@ -18,11 +18,7 @@
     <result column="updateDate" property="updateDate" jdbcType="DATE" />
   </resultMap>
 
-<<<<<<< HEAD
   <!-- <select id="selectRecordByCheck" resultType="int" parameterType="com.neusoft.model.Record" >
-=======
-  <select id="selectRecordByCheck" resultType="int" parameterType="com.neusoft.model.Record" >
->>>>>>> d148eede0af0655ed599236de3754163689c3733
     select 
      count(recordId)
     from record
@@ -33,7 +29,6 @@
       or <![CDATA[ (startTime >= #{startTime} and endTime <= #{endTime})]]>
       or <![CDATA[ (startTime >= #{startTime} and startTime <= #{endTime})]]>
       or <![CDATA[ (endTime >= #{startTime} and endTime <= #{endTime})]]>)
-<<<<<<< HEAD
   </select> -->
   <select id="selectRecordByCheck" resultType="Integer" parameterType="com.neusoft.model.Record" >
     select 
@@ -47,14 +42,11 @@
       or <![CDATA[ (startTime >= #{startTime} and startTime <= #{endTime})]]>
       or <![CDATA[ (endTime >= #{startTime} and endTime <= #{endTime})]]>)
       limit 1
-=======
->>>>>>> d148eede0af0655ed599236de3754163689c3733
   </select>
   <insert id="insert" parameterType="com.neusoft.model.Record" >
     INSERT INTO record(recordId, roomId, date, startTime, endTime, subscriber, phone, email, reason, remarks, registerId, updateId, registerDate, updateDate) 
       VALUES (#{recordId}, #{roomId}, #{date}, #{startTime}, #{endTime}, #{subscriber}, #{phone}, #{email}, #{reason}, #{remarks}, #{registerId}, #{updateId}, #{registerDate}, #{updateDate})
   </insert>
-<<<<<<< HEAD
   <select id="selectRecordList" resultType="com.neusoft.model.OrderInfo" parameterType="Map" >
     select 
      T2.roomName
@@ -79,6 +71,4 @@
     <if test="roomId != null and roomId != ''"> and T1.roomId = #{roomId}</if>
     order by T1.roomId ,T1.startTime
   </select>
-=======
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 </mapper>

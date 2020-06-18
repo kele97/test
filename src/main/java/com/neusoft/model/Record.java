@@ -5,11 +5,7 @@ import java.util.Date;
 public class Record {
 	private int recordId;
 	
-<<<<<<< HEAD
 	private int roomId;
-=======
-	private String roomId;
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 	
 	private Date date;
 	
@@ -43,19 +39,11 @@ public class Record {
 		this.recordId = recordId;
 	}
 
-<<<<<<< HEAD
 	public int getRoomId() {
 		return roomId;
 	}
 
 	public void setRoomId(int roomId) {
-=======
-	public String getRoomId() {
-		return roomId;
-	}
-
-	public void setRoomId(String roomId) {
->>>>>>> d148eede0af0655ed599236de3754163689c3733
 		this.roomId = roomId;
 	}
 
